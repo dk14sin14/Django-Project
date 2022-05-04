@@ -6,4 +6,17 @@ functions will be invoked automatically by django when we have an incoming reque
 
 
 def index(request):
-    return render(request, 'meetups/index.html')
+    meetups = [
+        {
+        'title': 'A first meetup', 
+        'location': 'New York', 
+        'slug': 'a-first-meet-up'
+        },
+        {
+        'title': 'A second meetup', 
+        'location': 'Paris', 
+        'slug': 'a-second-meet-up'
+        }
+    ]
+
+    return render(request, 'meetups/index.html', {'show_meetups': True, 'meetupsKEY': meetups})
