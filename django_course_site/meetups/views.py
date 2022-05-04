@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+'''
+functions will be invoked automatically by django when we have an incoming request for a certain URL.
+'''
+
+
+def index(request):
+    return HttpResponse('Hello world!')
