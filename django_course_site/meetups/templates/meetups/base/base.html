@@ -1,0 +1,26 @@
+{% load static %}
+
+<!-- 
+double curly brackets for things you are outputting. 
+single curly brackets with % for injecting.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}All meetups{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+        {% block site_css %}{% endblock %}
+    </head>
+    <body>
+        <header id="main-header">
+            <nav><a href="/meetups" id="main-logo">DjangoMeetups</a></nav>
+            <h1>{% block main_heading %}{% endblock %}</h1>
+            {% block header_content %}{% endblock %}
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+    </body>
+</html>
