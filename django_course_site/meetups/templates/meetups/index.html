@@ -22,7 +22,7 @@ single curly brackets with % for injecting.
             <section>
                 <h2>Upcoming Meetups</h2>
                 <ol>
-                    {% for i in meetupsKEY %}
+                    {% for i in meetups %}
                         <li class="meetup-item">
                             <article>
                                 <div class="meetup-summary">
@@ -35,7 +35,7 @@ single curly brackets with % for injecting.
                                     </div>
                                 </div>
                                 <div class="meetup-actions">
-                                    <a href="" class="btn">More Details</a>
+                                    <a href="{% url 'meetup-detail' i.slug %}" class="btn">More Details</a>
                                 </div>
                             </article>
                         </li>
