@@ -21,3 +21,5 @@ def meetup_details(request, meetup_slug):
         })
     except Exception as exc:
         return render(request, 'meetups/meetup-details.html', {'meetup_found': False})
+        
+
