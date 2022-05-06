@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Meetup
 
 '''
 functions will be invoked automatically by django when we have an incoming request for a certain URL.
@@ -6,20 +7,9 @@ functions will be invoked automatically by django when we have an incoming reque
 
 
 def index(request):
-    meetups = [
-        {
-        'title': 'A first meetup', 
-        'location': 'New York', 
-        'slug': 'a-first-meetup'
-        },
-        {
-        'title': 'A second meetup', 
-        'location': 'Paris', 
-        'slug': 'a-second-meetup'
-        }
-    ]
+    meetups = Meetup.objects.all()
 
-    return render(request, 'meetups/index.html', {'show_meetups': True, 'meetups': meetups})
+    return render(request, 'meetups/index.html', {'meetups': meetups})
 
 def meetup_details(request, meetup_slug):
     selected_meetup = {
