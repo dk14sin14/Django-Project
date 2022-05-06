@@ -20,6 +20,8 @@ We got good meetups coming up!
 {% endblock %}
 
 {% block body %}
+
+{% if meetup_found %}
 <section>
     <h2>Upcoming Meetups</h2>
     <ol>
@@ -27,5 +29,10 @@ We got good meetups coming up!
             {% include 'meetups/includes/meetup-item.html' with title=i.title location='New York' slug=i.slug%}
         {% endfor %}
     </ol>
-    </section>
+</section>
+
+{% else %}
+<p>No meetup found for this slug.</p>
+{% endif %}
+
 {% endblock %}
