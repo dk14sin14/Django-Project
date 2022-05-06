@@ -21,7 +21,6 @@ We got good meetups coming up!
 
 {% block body %}
 
-{% if meetup_found %}
 <section>
     <h2>Upcoming Meetups</h2>
     <ol>
@@ -30,9 +29,5 @@ We got good meetups coming up!
         {% endfor %}
     </ol>
 </section>
-
-{% else %}
-<p>No meetup found for this slug.</p>
-{% endif %}
 
 {% endblock %}
