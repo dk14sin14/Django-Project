@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Meetup
+from .models import Meetup, Participant
 from .forms import RegistrationForm
 
 '''
@@ -21,8 +21,9 @@ def meetup_details(request, meetup_slug):
         else:
             registration_form = RegistrationForm(request.POST)      # passes in the POST request's fields into RegistrationForm
             if registration_form.is_valid():                        # checks if inputs are valid, built in function
-                participant = registration_form.save()
-                selected_meetup.participants.add(participant)       # adds the participant created above into the participant attribute in the Meetup object. 
+                user_email = registration_form.cleaned_data['email']
+                participant, was_created = Participant.objects.get_or_create(email=user_email)
+                selected_meetup.participants.add(participant)       # adds the participant created above into the participants attribute in the Meetup object. 
                 return redirect('confirm_registration')
 
         return render(request, 'meetups/meetup-details.html', {

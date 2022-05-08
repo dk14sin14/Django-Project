@@ -11,5 +11,5 @@ Determines which view requests should be executed when request reach those URLs.
 urlpatterns = [
     path('meetups/', views.index, name="all-meetups"),
     path('meetups/success', views.confirm_registration, name="confirm_registration"),
-    path('meetups/<slug:meetup_slug>', views.meetup_details, name="meetup-details")
+    path('meetups/<slug:meetup_slug>', views.meetup_details, name="meetup-detail")
 ]
